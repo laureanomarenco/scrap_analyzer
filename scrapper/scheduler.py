@@ -1,8 +1,8 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore
 from .cron_jobs import scheduled_scrap  # Importa tu tarea programada
-
-def start_scheduler(sender, **kwargs):
+    
+def start_scheduler():
     """Inicia el BackgroundScheduler"""
     print("Iniciando el BackgroundScheduler...")
     scheduler = BackgroundScheduler()

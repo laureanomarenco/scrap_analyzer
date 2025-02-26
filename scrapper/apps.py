@@ -1,5 +1,4 @@
 from django.apps import AppConfig
-from django.db.models.signals import post_migrate
 
 class ScrapperConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -7,4 +6,7 @@ class ScrapperConfig(AppConfig):
 
     def ready(self):
         from .scheduler import start_scheduler
-        post_migrate.connect(start_scheduler, sender=self)
+        import sys
+        
+        if 'migrate' not in sys.argv and 'makemigrations' not in sys.argv:
+            start_scheduler()
