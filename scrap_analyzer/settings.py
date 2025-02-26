@@ -87,7 +87,7 @@ DATABASES = {
         'USER': 'root',                  # Tu nombre de usuario en MySQL
         'PASSWORD': 'my-secret-pw',           # Tu contraseña de MySQL
         'HOST': 'localhost',                   # Usualmente es localhost si MySQL está en tu máquina local
-        'PORT': '33066',                        # El puerto predeterminado para MySQL
+        'PORT': '3306',                        # El puerto predeterminado para MySQL
     }
 }
 LOGGING = {
