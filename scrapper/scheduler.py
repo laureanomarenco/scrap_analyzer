@@ -12,8 +12,8 @@ def start_scheduler():
     scheduler.add_job(
         scheduled_scrap,
         trigger="cron",
-        hour="10,14,19,21",  # Ejecutar a las 10:00 AM, 2:00 PM, 7:00 PM 20:10
-        minute="25",
+        hour="10,14,19,21",  # Ejecutar a las 10:00 AM, 2:00 PM, 7:00 PM 20:00
+        minute="26",
         id="my_scheduled_task_id",
         replace_existing=True,
     )

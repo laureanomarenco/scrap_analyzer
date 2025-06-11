@@ -7,17 +7,16 @@ import requests
 
 # Create your views here.
 # URL de la página web de ejemplo
-url = 'https://www.infobae.com/'
 
 @csrf_exempt
-def count_words():
+def count_words(request):
     print('------------- INIT SCRAP AND COUNT ---------------')
     palabras_excluir = ['dejar', 'hoy','aires','buenos','mundo','entre','ya', 'día' ,'the', 'pero', 'está', 'clarín', 'fue', 'sin', 'así', 'años', 'paso', 'medio', 'arte', 'lugar', 'sus', 'tras', 'nuevo', 'desde', 'semana', 'se', 'hizo', 'hay', 'era', 'son', 'no', 'lo', 'le', 'es', 'qué', 'cómo', 'más', 'su', 'por', 'de', 'el', 'la', 'los', 'las', 'y', 'de', 'en', 'a', 'con', 'para', 'sobre', 'un', 'una', 'que', 'del', 'al']
-
-    titulos = scrap_titles()
+    contador = Counter()
+    titulos = scrap_titles(request)
     for i, titulo in enumerate(titulos, 1):
         # Extraemos el texto del título y lo convertimos a minúsculas
-        texto_titulo = titulo.get_text().lower()
+        texto_titulo = titulo.lower()
 
         # Eliminamos puntuación usando una expresión regular
         texto_limpio = re.sub(r'[^\w\s]', '', texto_titulo)
